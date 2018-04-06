@@ -3,3 +3,5 @@ numpy==1.14.2
 requests==2.18.4
 django-environ==0.4.4
 gunicorn
+# Python-PostgreSQL Database Adapter
+psycopg2==2.7.3.2
