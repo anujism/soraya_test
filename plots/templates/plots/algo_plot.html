@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+    var data = {
+        labels: {{ data.0 }},
+        datasets: [
+            {
+                label: "Positions",
+                fill: false,
+                borderColor: "black",
+                pointBorderColor: "blue",
+                data: {{ data.1 }}
+            },
+            {
+                label: "PnL",
+                fill: false,
+                borderColor: "orange",
+                pointBorderColor: "red",
+                data: {{ data.2 }}
+            }
+        ]
+    };
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+          'fill': false,
+          responsive: true,
+          maintainAspectRatio: false
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<canvas id="myChart" height="500px"></canvas>
+{% endblock %}

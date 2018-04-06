@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'create' %}">Create Algo</a>
+  {% if object_list %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Signal</th>
+          <th scope="col">Trade</th>
+          <th scope="col">Ticker</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in object_list %}
+        <tr>
+          <td scope="col"><a href="{% url 'plot' id=item.id %}">{{ item.name }}</a></td>
+          <td scope="col">{{ item.signal }}</td>
+          <td scope="col">{{ item.trade }}</td>
+          <td scope="col">{{ item.ticker }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+{% else %}
+    <li>No Algorithms added yet.</li>
+{% endif %}
+
+{% endblock %}

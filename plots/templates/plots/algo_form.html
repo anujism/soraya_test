@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="post" id="algoform" autocomplete="off">
+  {% csrf_token %}
+  {% if form.errors or form.non_field_errors %}
+    <div class="row form-group">
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        Please resolve the errors in form first.
+        {{ form.non_field_errors }}
+      </div>
+    </div>
+  {% elif request.method == "POST" %}
+    <div class="row form-group">
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        The form is submitted successfully.
+      </div>
+    </div>
+  {% endif %}
+
+  {{ form.as_p }}
+
+  <div class="col-lg-12 text-center">
+    <button type="submit" class="btn btn-primary mt-lg">Submit</button>
+  </div>
+</form>
+{% endblock %}
