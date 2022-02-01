@@ -1,5 +1,5 @@
 Django==2.2.25
-numpy==1.14.2
+numpy==1.21.0
 requests==2.20.0
 django-environ==0.4.4
 gunicorn
