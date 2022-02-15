@@ -1,4 +1,4 @@
-Django==2.2.26
+Django==2.2.27
 numpy==1.21.5
 requests==2.20.0
 django-environ==0.4.4
